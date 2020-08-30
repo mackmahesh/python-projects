@@ -3,9 +3,9 @@ import time
 
 print("\nWelcome to Hangman game by Mahesh\n")
 name = input("Enter your name\n")
-print("\t Hello!!" + name + "\t Lets begin!!")
+print("Hello!!\t"+ name + "\t Lets begin!!")
 time.sleep(2)
-print("The game is about to start!!\n")
+print("   The game is about to start!!\n")
 time.sleep(3)
 
 def main():
@@ -15,7 +15,10 @@ def main():
     global display
     global already_gussed
     global count
-    word_list = ['mahesh','fun','great','stunt','guess']
+    global word_is
+    global count
+    global take
+    word_list = ['dinner','fun','great','apple','guess','moango','bananna']
     word = random.choice(word_list)
     word_is = word
     length = len(word)
@@ -43,8 +46,9 @@ def hangman():
     global display
     global already_gussed
     global take
+    global word_is
     limit = 5
-    guess = input("Welcome to Hangman\t" + display + "\t Enter your wild guess:\n")
+    guess = input("Welcome to Hangman  :" + display + "  Enter your wild guess:\n")
     guess = guess.strip()
 
 
@@ -76,7 +80,7 @@ def hangman():
                   "  |       \n"
                   "  |       \n"
                   "__|__\n")
-            print("Wrong guess\t"+str(limit-count)+"\t You have few days to live")
+            print("Wrong guess: "+str(limit-count)+"  You have few days to live")
 
 
         elif count == 2:
@@ -89,7 +93,7 @@ def hangman():
                   "  |       \n"
                   "  |       \n"
                   "__|__\n")
-            print("Wrong guess\t"+str(limit-count)+"\tYou have few days to live")
+            print("Wrong guess: "+str(limit-count)+"  You have few days to live")
 
         elif count == 3:
             print("U are about to see your future!!\n")
@@ -101,7 +105,7 @@ def hangman():
                   "  |       \n"
                   "  |       \n"
                   "__|__\n")
-            print("Wrong guess\t"+str(limit-count)+"\t You have few days to live")
+            print("Wrong guess: "+str(limit-count)+" You have few days to live")
 
         elif count == 4:
             print("U are about to see your future!!\n")
@@ -113,7 +117,7 @@ def hangman():
                   "  |       \n"
                   "  |       \n"
                   "__|__\n")
-            print("Wrong guess \t"+str(limit-count)+"\t You have few days to live")
+            print("Wrong guess: "+str(limit-count)+" You have few days to live")
 
         elif count == 5:
             print("U are about to see your future!!\n")
@@ -125,13 +129,13 @@ def hangman():
                   "  |     |  \n"
                   "  |    / \ \n"
                   "__|__\n")
-            print("Wrong guess \t"+str(limit-count)+"\t You have few days to live")
+            print("Wrong guess. Thanks for playing")
             print("The word was:",word_is)
             loop()
     if word == "_" * length:
         print("Congrats You did it!")
         loop()
-    elif limit != count :
+    elif count!= limit  :
         hangman()
 
 main()

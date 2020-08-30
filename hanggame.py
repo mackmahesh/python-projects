@@ -31,11 +31,11 @@ def loop():
     global take
     take = input("Do you want to play again.....Type y for yes or n for no: ")
     while take not in ['y','n','Y','N']:
-        print('\n In valid option, Please type again y for Yes or else n for No.:')
+        take =input('\n In valid option, Please type again y for Yes or else n for No.:')
     if take == 'y'or 'Y' :
         print("\nLets play again")
         main()
-    else:
+    elif take == 'n' or 'N' :
         print("\n Thanks for playing, will catch you later")
         exit()
 def hangman():
@@ -52,10 +52,11 @@ def hangman():
     guess = guess.strip()
 
 
-    if len(guess) == 0 or len(guess) > 1:
+    if len(guess.strip()) == 0 or len(guess.strip()) > 1:
         print("\n It is an invalid guess")
         print("Dumbo it is hangman!! You should check one word at a time!")
         hangman()
+
     elif guess in word:
         already_gussed.extend([guess])
         index = word.find(guess)
@@ -136,6 +137,7 @@ def hangman():
         print("Congrats You did it!")
         loop()
     elif count!= limit  :
+
         hangman()
 
 main()
